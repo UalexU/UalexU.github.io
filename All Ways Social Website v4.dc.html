@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600&amp;family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Allura&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #131311; color: #3f4a38; font-family: 'Karla', sans-serif; }
+a { color: inherit; }
+a:hover { color: #f090ac; }
+::selection { background: #3f4a38; color: #f1ebdf; }
+@keyframes aws-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes aws-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.aws-rv { opacity: 0; transform: translateY(28px); transition: opacity 1s cubic-bezier(0.22,1,0.36,1), transform 1s cubic-bezier(0.22,1,0.36,1); }
+.aws-rv.on { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .aws-rv { opacity: 1; transform: none; transition: none; } }
+input, select, textarea { font-family: 'Karla', sans-serif; }
+</style>
+</helmet>
+
+<!-- ============ NAV ============ -->
+<nav data-screen-label="Nav" style="position: sticky; top: 0; z-index: 50; background: #3f4a38; color: #f1ebdf;">
+  <div style="max-width: 1240px; margin: 0 auto; padding: 18px 28px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+    <a href="#home" style="text-decoration: none; display: flex; flex-direction: column; line-height: 1;">
+      <span style="font-family: 'Cormorant Garamond', serif; font-size: 24px; letter-spacing: 0.22em; text-transform: uppercase;">All Ways</span>
+      <span style="font-family: 'Allura', cursive; font-size: 22px; color: {{ accent }}; margin: -2px 0 0 44px;">social</span>
+    </a>
+    <div style="display: flex; align-items: center; gap: clamp(16px, 3vw, 34px); flex-wrap: wrap; justify-content: flex-end; flex: 1;">
+      <a href="#about" style="text-decoration: none; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; transition: color 0.4s;" style-hover="color: {{ accent }};">About</a>
+      <a href="#services" style="text-decoration: none; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; transition: color 0.4s;" style-hover="color: {{ accent }};">Services</a>
+      <a href="#investment" style="text-decoration: none; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; transition: color 0.4s;" style-hover="color: {{ accent }};">Investment</a>
+      <a href="#contact" style="text-decoration: none; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; border: 1px solid rgba(241,235,223,0.5); padding: 10px 20px; transition: border-color 0.4s, color 0.4s, letter-spacing 0.4s;" style-hover="color: {{ accent }}; border-color: {{ accent }};">Inquire</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header id="home" data-screen-label="Hero" style="position: relative; background: #131311; color: #f1ebdf; overflow: hidden;">
+  <video src="./assets/matcha-video.mp4" autoPlay="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="auto" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.55;"></video>
+  <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(19,19,17,0.35), rgba(19,19,17,0.55));"></div>
+  <div style="position: relative; max-width: 1000px; margin: 0 auto; padding: clamp(110px, 16vh, 170px) 28px clamp(80px, 12vh, 130px); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 26px;">
+    <span class="aws-rv" data-reveal="" style="font-size: 12px; letter-spacing: 0.38em; text-transform: uppercase; color: rgba(241,235,223,0.85);">A boutique social marketing studio</span>
+    <h1 class="aws-rv" data-reveal="" style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(32px, 5.4vw, 58px); line-height: 1.25; letter-spacing: 0.1em; text-transform: uppercase; margin: 0; text-wrap: balance;">Exploring every pathway to your brand's success</h1>
+    <p class="aws-rv" data-reveal="" style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(17px, 2.2vw, 21px); letter-spacing: 0.05em; color: rgba(241,235,223,0.9); margin: 0; max-width: 560px;">strategy, content, and creative direction for brands moving forward</p>
+    <div class="aws-rv" data-reveal="" style="position: relative; margin-top: 14px;">
+      <span style="position: absolute; top: -30px; left: -72px; font-family: 'Allura', cursive; font-size: clamp(38px, 5vw, 54px); color: {{ accent }}; transform: rotate(-8deg); pointer-events: none;">say hi —</span>
+      <a href="#contact" style="text-decoration: none; font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 4.4vw, 44px); letter-spacing: 0.04em; color: #f1ebdf; border-bottom: 1px solid rgba(241,235,223,0.5); padding-bottom: 5px; transition: opacity 0.5s;" style-hover="opacity: 0.6;">book a discovery call</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ INTRO (sage editorial) ============ -->
+<section id="about" data-screen-label="Intro" style="background: #3f4a38; color: #f1ebdf; overflow: hidden;">
+  <div style="max-width: 1240px; margin: 0 auto; padding: clamp(72px, 10vw, 120px) 28px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); gap: clamp(40px, 6vw, 90px); align-items: center;">
+      <div class="aws-rv" data-reveal="" style="display: flex; flex-direction: column; gap: 20px;">
+        <span style="font-size: 12px; letter-spacing: 0.34em; text-transform: uppercase; color: rgba(241,235,223,0.7);">Who we are</span>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(28px, 3.6vw, 40px); line-height: 1.3; letter-spacing: 0.1em; text-transform: uppercase; color: #e8dfcc; margin: 0; text-wrap: pretty;">We don't just manage socials — <span style="font-family: 'Allura', cursive; text-transform: none; letter-spacing: 0; font-size: 1.2em; color: {{ accent }};">we build brands</span></h2>
+        <p style="font-size: 15px; line-height: 1.9; letter-spacing: 0.05em; color: rgba(241,235,223,0.88); margin: 0; text-align: justify; text-wrap: pretty;">Our story begins with a belief: success in social media is about discovering all the ways a brand can grow. We craft narratives that cut through the noise — testing, experimenting, and finding what moves your audience, then building the momentum to keep you there.</p>
+      </div>
+      <div style="position: relative; display: flex; justify-content: center; padding: 30px 0;">
+        <div style="position: relative; width: min(300px, 70vw); aspect-ratio: 3 / 5;">
+          <div style="position: absolute; inset: -12px 26px -12px -26px; border: 1.5px solid rgba(19,19,17,0.75); border-radius: 32px;"></div>
+          <div style="position: absolute; inset: 0; border-radius: 30px; overflow: hidden; background: #131311; box-shadow: 0 30px 60px rgba(0,0,0,0.3);">
+            <img src="./assets/mel.png" alt="Mel — founder of All Ways Social" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+          <span style="position: absolute; bottom: -20px; left: -34px; font-family: 'Allura', cursive; font-size: clamp(28px, 3.4vw, 38px); color: {{ accent }}; transform: rotate(-6deg); pointer-events: none;">Mel, your founder</span>
+          <div style="position: absolute; right: -70px; top: -58px; width: clamp(130px, 14vw, 190px); aspect-ratio: 1; animation: aws-spin 30s linear infinite; pointer-events: none;">
+            <svg viewBox="0 0 200 200" width="100%" height="100%"><defs><path id="awscircle" d="M100,20 a80,80 0 1,1 -0.01,0"></path></defs><text style="font-size: 15.5px; letter-spacing: 5px; text-transform: uppercase; font-family: Karla, sans-serif; fill: #e8dfcc;"><textPath href="#awscircle">all ways social • moving you forward • </textPath></text></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); gap: clamp(40px, 6vw, 90px); align-items: center; margin-top: clamp(64px, 8vw, 110px);">
+      <div style="position: relative; order: 1; display: flex; justify-content: center;">
+        <div style="position: relative; width: min(440px, 88vw); aspect-ratio: 4 / 3;">
+          <div style="position: absolute; inset: -12px -14px 12px 14px; border: 1.5px solid rgba(19,19,17,0.75); border-radius: 28px;"></div>
+          <div style="position: absolute; inset: 0; border-radius: 26px; overflow: hidden;">
+            <img src="./assets/coffee-5.png" alt="Client content — barista handing an iced coffee" style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;">
+          </div>
+        </div>
+      </div>
+      <div class="aws-rv" data-reveal="" style="order: 2; display: flex; flex-direction: column; gap: 20px; align-items: flex-end; text-align: right;">
+        <span style="font-size: 12px; letter-spacing: 0.34em; text-transform: uppercase; color: rgba(241,235,223,0.7);">How we work</span>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(28px, 3.6vw, 40px); line-height: 1.3; letter-spacing: 0.1em; text-transform: uppercase; color: #e8dfcc; margin: 0; text-wrap: pretty;">Growth, <span style="font-family: 'Allura', cursive; text-transform: none; letter-spacing: 0; font-size: 1.2em; color: {{ accent }};">mapped</span></h2>
+        <p style="font-size: 15px; line-height: 1.9; letter-spacing: 0.05em; color: rgba(241,235,223,0.88); margin: 0; text-align: justify; max-width: 460px; text-wrap: pretty;">Exploration, navigation, momentum, destination — every partnership follows a route we chart together. Strategy sets the direction, content keeps the pace, and consistent creative carries your brand to results worth sharing.</p>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 28px; margin-top: clamp(64px, 8vw, 110px); border-top: 1px solid rgba(232,223,204,0.3); padding-top: 44px;">
+      <sc-for list="{{ pillars }}" as="pillar" hint-placeholder-count="4">
+        <div class="aws-rv" data-reveal="" style="display: flex; flex-direction: column; gap: 10px; text-align: center; align-items: center;">
+          <span style="font-family: 'Allura', cursive; font-size: 26px; color: {{ accent }};">{{ pillar.num }}</span>
+          <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 21px; letter-spacing: 0.14em; text-transform: uppercase; color: #e8dfcc; margin: 0;">{{ pillar.name }}</h3>
+          <p style="font-size: 13px; line-height: 1.7; letter-spacing: 0.04em; color: rgba(241,235,223,0.75); margin: 0;">{{ pillar.desc }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT WE DO (cream panel) ============ -->
+<section id="services" data-screen-label="Services" style="background: #e8dfcc; color: #3f4a38;">
+  <div style="max-width: 1240px; margin: 0 auto; padding: clamp(72px, 10vw, 120px) 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: clamp(44px, 6vw, 90px); align-items: stretch;">
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <h2 class="aws-rv" data-reveal="" style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(30px, 4vw, 42px); letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 10px;">What we do <span style="font-family: 'Allura', cursive; text-transform: none; letter-spacing: 0; color: {{ accent }};">for you</span></h2>
+      <p class="aws-rv" data-reveal="" style="font-size: 14px; line-height: 1.8; letter-spacing: 0.05em; margin: 0 0 26px; color: rgba(63,74,56,0.85); max-width: 480px;">Craft compelling narratives that cut through the noise.</p>
+      <sc-for list="{{ services }}" as="svc" hint-placeholder-count="5">
+        <div class="aws-rv" data-reveal="" style="border-top: 1px solid rgba(63,74,56,0.25); padding: 20px 0;">
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+            <h3 style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; font-size: 22px; letter-spacing: 0.05em; margin: 0;">{{ svc.name }}</h3>
+            <span style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(63,74,56,0.6);">{{ svc.tag }}</span>
+          </div>
+          <p style="font-size: 13.5px; line-height: 1.75; letter-spacing: 0.04em; color: rgba(63,74,56,0.8); margin: 8px 0 0; text-wrap: pretty;">{{ svc.desc }}</p>
+        </div>
+      </sc-for>
+      <a href="#investment" class="aws-rv" data-reveal="" style="align-self: flex-start; margin-top: 26px; text-decoration: none; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: #3f4a38; border: 1px solid #3f4a38; padding: 18px 34px; transition: letter-spacing 0.5s, color 0.5s, border-color 0.5s;" style-hover="letter-spacing: 0.42em; color: rgba(63,74,56,0.65); border-color: rgba(63,74,56,0.65);">see the investment</a>
+    </div>
+    <div style="position: relative; min-height: 420px;">
+      <div style="position: absolute; inset: 0; border-radius: 4px; overflow: hidden;">
+        <img src="./assets/matcha-5.png" alt="Lifestyle content shoot" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY (content we make) ============ -->
+<section data-screen-label="Gallery" style="background: #e8dfcc; color: #3f4a38; overflow: hidden; padding-bottom: clamp(64px, 9vw, 100px);">
+  <div style="max-width: 1240px; margin: 0 auto; padding: 0 28px 34px; display: flex; align-items: baseline; justify-content: space-between; gap: 18px; flex-wrap: wrap;">
+    <h2 class="aws-rv" data-reveal="" style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(26px, 3.4vw, 36px); letter-spacing: 0.1em; text-transform: uppercase; margin: 0;">Content <span style="font-family: 'Allura', cursive; text-transform: none; letter-spacing: 0; color: {{ accent }};">we've made</span></h2>
+    <span class="aws-rv" data-reveal="" style="font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(63,74,56,0.6);">Shot on iPhone, for real clients</span>
+  </div>
+  <div style="display: flex; gap: 16px; width: max-content; will-change: transform; animation: aws-marquee 45s linear infinite;">
+    <sc-for list="{{ galleryLoop }}" as="ph" hint-placeholder-count="8">
+      <div style="flex: none; width: clamp(180px, 22vw, 250px); aspect-ratio: 3 / 4; border-radius: 4px; overflow: hidden; background: #d9cfba;">
+        <img src="{{ ph.src }}" alt="{{ ph.alt }}" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<!-- ============ INVESTMENT (white + marquee + carousel) ============ -->
+<section id="investment" data-screen-label="Investment" style="background: #fdfcf8; color: #3f4a38; overflow: hidden;">
+  <sc-if value="{{ showMarquee }}" hint-placeholder-val="{{ true }}">
+    <div style="background: #3f4a38; color: #e8dfcc; overflow: hidden; padding: 16px 0;">
+      <div style="white-space: nowrap; will-change: transform; animation: aws-marquee 28s linear infinite; font-size: 13px; letter-spacing: 0.34em; text-transform: uppercase; width: max-content;">{{ marqueeText }}</div>
+    </div>
+  </sc-if>
+  <div style="max-width: 1240px; margin: 0 auto; padding: clamp(64px, 9vw, 110px) 28px;">
+    <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 28px; flex-wrap: wrap; margin-bottom: 44px;">
+      <div class="aws-rv" data-reveal="" style="display: flex; flex-direction: column; gap: 14px; max-width: 620px;">
+        <span style="font-size: 12px; letter-spacing: 0.34em; text-transform: uppercase; color: rgba(63,74,56,0.6);">Work with us</span>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(30px, 4vw, 44px); letter-spacing: 0.1em; text-transform: uppercase; margin: 0;">The <span style="font-family: 'Allura', cursive; text-transform: none; letter-spacing: 0; color: {{ accent }};">investment</span></h2>
+        <p style="font-size: 14.5px; line-height: 1.8; letter-spacing: 0.04em; color: rgba(63,74,56,0.8); margin: 0; text-wrap: pretty;">Five ways to travel with us. Each engagement is tailored — these are your starting points.</p>
+      </div>
+      <div style="display: flex; gap: 12px; flex: none;">
+        <button onClick="{{ prevSlide }}" aria-label="Previous service" style="width: 52px; height: 52px; border-radius: 50%; border: 1px solid rgba(63,74,56,0.45); background: none; color: #3f4a38; font-size: 18px; cursor: pointer; transition: background 0.4s, color 0.4s;" style-hover="background: #3f4a38; color: #f1ebdf;">←</button>
+        <button onClick="{{ nextSlide }}" aria-label="Next service" style="width: 52px; height: 52px; border-radius: 50%; border: 1px solid rgba(63,74,56,0.45); background: none; color: #3f4a38; font-size: 18px; cursor: pointer; transition: background 0.4s, color 0.4s;" style-hover="background: #3f4a38; color: #f1ebdf;">→</button>
+      </div>
+    </div>
+    <div onMouseEnter="{{ pauseCarousel }}" onMouseLeave="{{ resumeCarousel }}" style="position: relative; border-radius: 6px; overflow: hidden; background: #131311;">
+      <div style="display: flex; transform: translateX({{ trackX }}); transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);">
+        <sc-for list="{{ pricingSlides }}" as="slide" hint-placeholder-count="5">
+          <div style="flex: none; width: 100%; position: relative; min-height: clamp(420px, 60vh, 520px); display: flex; align-items: flex-end;">
+            <video src="{{ slide.video }}" autoPlay="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="auto" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.75;"></video>
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(19,19,17,0.9) 0%, rgba(19,19,17,0.35) 55%, rgba(19,19,17,0.15) 100%);"></div>
+            <div style="position: relative; padding: clamp(28px, 4vw, 52px); display: flex; justify-content: space-between; align-items: flex-end; gap: 28px; width: 100%; box-sizing: border-box; color: #f1ebdf; flex-wrap: wrap;">
+              <div style="display: flex; flex-direction: column; gap: 10px; max-width: 620px;">
+                <span style="font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: #e8dfcc;">{{ slide.num }} — {{ slide.tagline }}</span>
+                <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(26px, 3.6vw, 40px); letter-spacing: 0.08em; text-transform: uppercase; margin: 0; line-height: 1.15;">{{ slide.name }}</h3>
+                <p style="font-size: 14px; line-height: 1.7; letter-spacing: 0.04em; color: rgba(241,235,223,0.88); margin: 0; text-wrap: pretty;">{{ slide.desc }}</p>
+              </div>
+              <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 12px; flex: none;">
+                <span style="font-family: 'Allura', cursive; font-size: clamp(28px, 3.6vw, 40px); color: {{ accent }}; white-space: nowrap;">{{ slide.price }}</span>
+                <a href="#contact" style="text-decoration: none; font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: #f1ebdf; border: 1px solid rgba(241,235,223,0.6); padding: 14px 26px; transition: background 0.4s, color 0.4s;" style-hover="background: #f1ebdf; color: #131311;">Inquire</a>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="position: absolute; top: 22px; right: 26px; display: flex; gap: 8px;">
+        <sc-for list="{{ dots }}" as="dot" hint-placeholder-count="5">
+          <button onClick="{{ dot.go }}" aria-label="Go to slide" style="width: 9px; height: 9px; border-radius: 50%; border: 1px solid rgba(241,235,223,0.85); background: {{ dot.fill }}; padding: 0; cursor: pointer; transition: background 0.4s;"></button>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHECKOUT MODAL ============ -->
+<sc-if value="{{ checkoutOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeCheckout }}" style="position: fixed; inset: 0; z-index: 100; background: rgba(19,19,17,0.65); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; padding: 20px;">
+    <div onClick="{{ stopClick }}" style="background: #f1ebdf; color: #3f4a38; width: min(560px, 100%); box-sizing: border-box; max-height: 90vh; overflow-y: auto; padding: clamp(28px, 5vw, 44px); position: relative; box-shadow: 0 40px 90px rgba(0,0,0,0.45);">
+      <button onClick="{{ closeCheckout }}" aria-label="Close" style="position: absolute; top: 14px; right: 14px; background: none; border: none; font-size: 22px; color: rgba(63,74,56,0.6); cursor: pointer; line-height: 1; padding: 8px;">×</button>
+
+      <!-- ---------- confirmed ---------- -->
+      <sc-if value="{{ payStatePaid }}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; padding: 30px 0;">
+          <span style="font-family: 'Allura', cursive; font-size: 52px; color: {{ accent }}; line-height: 1;">thank you!</span>
+          <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 20px; letter-spacing: 0.12em; text-transform: uppercase; margin: 0;">{{ checkoutSlide.name }} reserved</h3>
+          <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 17px; letter-spacing: 0.04em; color: #3f4a38; margin: 0;">{{ meetingLine }}</p>
+          <span style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(63,74,56,0.6); border: 1px solid rgba(63,74,56,0.25); padding: 8px 16px;">{{ paidMethodLine }}</span>
+          <p style="font-size: 13.5px; line-height: 1.8; color: rgba(63,74,56,0.8); margin: 0;">A receipt, calendar invite, and your onboarding details are on the way to your inbox.</p>
+          <span style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(63,74,56,0.5);">Prototype — no real charge was made</span>
+          <button onClick="{{ closeCheckout }}" style="margin-top: 8px; font-family: 'Karla', sans-serif; font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; background: #3f4a38; color: #f1ebdf; border: none; padding: 15px 32px; cursor: pointer;">Done</button>
+        </div>
+      </sc-if>
+
+      <!-- ---------- handing off to the provider ---------- -->
+      <sc-if value="{{ payStateBusy }}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px; padding: 62px 0;">
+          <div style="width: 46px; height: 46px; border-radius: 50%; border: 1px solid rgba(63,74,56,0.2); border-top-color: {{ accent }}; animation: aws-spin 0.9s linear infinite;"></div>
+          <span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 19px; letter-spacing: 0.04em;">{{ busyLine }}</span>
+          <span style="font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(63,74,56,0.5);">Please don't close this window</span>
+        </div>
+      </sc-if>
+
+      <!-- ---------- choose a method + pay ---------- -->
+      <sc-if value="{{ payStateIdle }}" hint-placeholder-val="{{ true }}">
+        <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 26px;">
+          <span style="font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(63,74,56,0.6);">Reserve your spot</span>
+          <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; text-transform: uppercase; margin: 0;">{{ checkoutSlide.name }}</h3>
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 1px solid rgba(63,74,56,0.25); padding: 10px 0 14px; margin-top: 8px;">
+            <span style="font-size: 12px; letter-spacing: 0.06em; color: rgba(63,74,56,0.75);">{{ checkoutSlide.depositNote }}</span>
+            <span style="font-family: 'Allura', cursive; font-size: 32px; color: {{ accent }};">{{ checkoutSlide.deposit }}</span>
+          </div>
+        </div>
+
+        <span style="display: block; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(63,74,56,0.6); margin-bottom: 12px;">How would you like to pay?</span>
+        <div role="radiogroup" aria-label="Payment method" style="display: flex; flex-direction: column; border-top: 1px solid rgba(63,74,56,0.2); margin-bottom: 26px;">
+          <sc-for list="{{ payMethods }}" as="m" hint-placeholder-count="8">
+            <button type="button" onClick="{{ m.select }}" aria-pressed="{{ m.isOn }}" style="display: flex; align-items: center; gap: 14px; width: 100%; text-align: left; box-sizing: border-box; background: {{ m.rowBg }}; color: #3f4a38; border: none; border-bottom: 1px solid rgba(63,74,56,0.2); border-left: 2px solid {{ m.rowEdge }}; padding: 14px 12px; cursor: pointer; font-family: 'Karla', sans-serif; transition: background 0.35s;" style-hover="background: rgba(63,74,56,0.07);">
+              <span aria-hidden="true" style="flex: none; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: {{ m.markBg }}; color: {{ m.markFg }}; font-size: 13px; font-weight: 600;">{{ m.mark }}</span>
+              <span style="display: flex; flex-direction: column; gap: 3px; flex: 1; min-width: 0;">
+                <span style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;">{{ m.name }}</span>
+                <span style="font-size: 11.5px; letter-spacing: 0.03em; line-height: 1.5; color: rgba(63,74,56,0.65);">{{ m.note }}</span>
+              </span>
+              <span aria-hidden="true" style="flex: none; width: 15px; height: 15px; border-radius: 50%; border: 1px solid {{ m.dotEdge }}; background: {{ m.dotFill }}; box-shadow: inset 0 0 0 3px #f1ebdf;"></span>
+            </button>
+          </sc-for>
+        </div>
+
+        <!-- card -->
+        <sc-if value="{{ bodyIsCard }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ payNow }}" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px 16px;">
+            <label style="display: flex; flex-direction: column; gap: 7px; grid-column: 1 / -1;">
+              <span style="font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(63,74,56,0.7);">Name on card</span>
+              <input required="{{ true }}" type="text" autoComplete="cc-name" style="background: none; border: none; border-bottom: 1px solid rgba(63,74,56,0.4); padding: 9px 2px; font-size: 15px; color: #3f4a38; outline: none;">
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 7px; grid-column: 1 / -1;">
+              <span style="font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(63,74,56,0.7);">Card number</span>
+              <input required="{{ true }}" type="text" inputMode="numeric" autoComplete="cc-number" placeholder="1234 5678 9012 3456" style="background: none; border: none; border-bottom: 1px solid rgba(63,74,56,0.4); padding: 9px 2px; font-size: 15px; color: #3f4a38; outline: none;">
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 7px;">
+              <span style="font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(63,74,56,0.7);">Expiry</span>
+              <input required="{{ true }}" type="text" inputMode="numeric" autoComplete="cc-exp" placeholder="MM / YY" style="background: none; border: none; border-bottom: 1px solid rgba(63,74,56,0.4); padding: 9px 2px; font-size: 15px; color: #3f4a38; outline: none;">
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 7px;">
+              <span style="font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(63,74,56,0.7);">CVC</span>
+              <input required="{{ true }}" type="text" inputMode="numeric" autoComplete="cc-csc" placeholder="123" style="background: none; border: none; border-bottom: 1px solid rgba(63,74,56,0.4); padding: 9px 2px; font-size: 15px; color: #3f4a38; outline: none;">
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 7px;">
+              <span style="font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(63,74,56,0.7);">Billing ZIP</span>
+              <input required="{{ true }}" type="text" inputMode="numeric" autoComplete="postal-code" placeholder="90210" style="background: none; border: none; border-bottom: 1px solid rgba(63,74,56,0.4); padding: 9px 2px; font-size: 15px; color: #3f4a38; outline: none;">
+            </label>
+            <button type="submit" style="grid-column: 1 / -1; font-family: 'Karla', sans-serif; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; background: #3f4a38; color: #f1ebdf; border: 1px solid #3f4a38; padding: 17px; cursor: pointer; white-space: nowrap; margin-top: 6px; transition: background 0.4s, color 0.4s;" style-hover="background: none; color: #3f4a38;">{{ selectedMethod.action }}</button>
+          </form>
+        </sc-if>
+
+        <!-- apple pay / google pay / paypal / venmo / cash app -->
+        <sc-if value="{{ bodyIsWallet }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ payRedirect }}" style="width: 100%; box-sizing: border-box; font-family: 'Karla', sans-serif; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; background: #3f4a38; color: #f1ebdf; border: 1px solid #3f4a38; padding: 18px; cursor: pointer; transition: background 0.4s, color 0.4s;" style-hover="background: none; color: #3f4a38;">{{ selectedMethod.action }}</button>
+        </sc-if>
+
+        <!-- klarna — pay in 4 -->
+        <sc-if value="{{ bodyIsBnpl }}" hint-placeholder-val="{{ false }}">
+          <div style="border: 1px solid rgba(63,74,56,0.25); padding: 18px 20px 20px; margin-bottom: 18px; display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(63,74,56,0.6); margin-bottom: 8px;">Your payment plan</span>
+            <sc-for list="{{ installments }}" as="p" hint-placeholder-count="4">
+              <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-top: 1px solid rgba(63,74,56,0.15); padding: 9px 0 0;">
+                <span style="font-size: 12px; letter-spacing: 0.05em; color: rgba(63,74,56,0.75);">{{ p.when }}</span>
+                <span style="font-size: 14px; letter-spacing: 0.04em;">{{ p.amount }}</span>
+              </div>
+            </sc-for>
+            <span style="font-size: 11px; line-height: 1.6; letter-spacing: 0.03em; color: rgba(63,74,56,0.6); margin-top: 12px;">0% interest. Checking your eligibility won't affect your credit score.</span>
+          </div>
+          <button onClick="{{ payRedirect }}" style="width: 100%; box-sizing: border-box; font-family: 'Karla', sans-serif; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; background: #3f4a38; color: #f1ebdf; border: 1px solid #3f4a38; padding: 18px; cursor: pointer; transition: background 0.4s, color 0.4s;" style-hover="background: none; color: #3f4a38;">{{ selectedMethod.action }}</button>
+        </sc-if>
+
+        <!-- bank transfer / ACH -->
+        <sc-if value="{{ bodyIsBank }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ payRedirect }}" style="width: 100%; box-sizing: border-box; font-family: 'Karla', sans-serif; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; background: none; color: #3f4a38; border: 1px solid #3f4a38; padding: 18px; cursor: pointer; transition: background 0.4s, color 0.4s;" style-hover="background: #3f4a38; color: #f1ebdf;">Connect your bank instantly</button>
+          <div style="display: flex; align-items: center; gap: 14px; margin: 20px 0 6px;">
+            <span style="flex: 1; height: 1px; background: rgba(63,74,56,0.2);"></span>
+            <span style="font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(63,74,56,0.5);">or enter it manually</span>
+            <span style="flex: 1; height: 1px; background: rgba(63,74,56,0.2);"></span>
+          </div>
+          <form onSubmit="{{ payNow }}" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px 16px;">
+            <label style="display: flex; flex-direction: column; gap: 7px; grid-column: 1 / -1;">
+              <span style="font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(63,74,56,0.7);">Account holder</span>
+              <input required="{{ true }}" type="text" autoComplete="name" style="background: none; border: none; border-bottom: 1px solid rgba(63,74,56,0.4); padding: 9px 2px; font-size: 15px; color: #3f4a38; outline: none;">
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 7px;">
+              <span style="font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(63,74,56,0.7);">Routing number</span>
+              <input required="{{ true }}" type="text" inputMode="numeric" placeholder="9 digits" style="background: none; border: none; border-bottom: 1px solid rgba(63,74,56,0.4); padding: 9px 2px; font-size: 15px; color: #3f4a38; outline: none;">
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 7px;">
+              <span style="font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(63,74,56,0.7);">Account number</span>
+              <input required="{{ true }}" type="text" inputMode="numeric" style="background: none; border: none; border-bottom: 1px solid rgba(63,74,56,0.4); padding: 9px 2px; font-size: 15px; color: #3f4a38; outline: none;">
+            </label>
+            <button type="submit" style="grid-column: 1 / -1; font-family: 'Karla', sans-serif; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; background: #3f4a38; color: #f1ebdf; border: 1px solid #3f4a38; padding: 17px; cursor: pointer; white-space: nowrap; margin-top: 6px; transition: background 0.4s, color 0.4s;" style-hover="background: none; color: #3f4a38;">{{ selectedMethod.action }}</button>
+          </form>
+        </sc-if>
+
+        <p style="font-size: 10.5px; letter-spacing: 0.06em; line-height: 1.75; color: rgba(63,74,56,0.55); margin: 18px 0 0; text-align: center;">{{ selectedMethod.footnote }}</p>
+        <p style="font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(63,74,56,0.45); margin: 8px 0 0; text-align: center;">{{ processorLine }}</p>
+      </sc-if>
+    </div>
+  </div>
+</sc-if>
+
+<!-- ============ CTA (black) ============ -->
+<section data-screen-label="CTA" style="background: #131311; color: #f1ebdf;">
+  <div style="max-width: 900px; margin: 0 auto; padding: clamp(90px, 13vw, 150px) 28px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px;">
+    <span class="aws-rv" data-reveal="" style="font-size: 12px; letter-spacing: 0.38em; text-transform: uppercase; color: rgba(241,235,223,0.7);">Your next chapter starts here</span>
+    <h2 class="aws-rv" data-reveal="" style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(30px, 4.6vw, 48px); line-height: 1.3; letter-spacing: 0.1em; text-transform: uppercase; margin: 0; text-wrap: balance;">Ready to elevate your brand?</h2>
+    <div class="aws-rv" data-reveal="" style="display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; justify-content: center;">
+      <span style="font-family: 'Allura', cursive; font-size: clamp(26px, 3.4vw, 36px); color: {{ accent }};">let's</span>
+      <a href="#contact" style="text-decoration: none; font-family: 'Cormorant Garamond', serif; font-size: clamp(24px, 3.2vw, 34px); letter-spacing: 0.04em; color: #e8dfcc; border-bottom: 1px solid rgba(232,223,204,0.5); padding-bottom: 4px; transition: opacity 0.5s;" style-hover="opacity: 0.6;">work together</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESERVE (white booking) ============ -->
+<section id="reserve" data-screen-label="Reserve" style="background: #fdfcf8; color: #3f4a38;">
+  <div style="max-width: 760px; margin: 0 auto; padding: clamp(72px, 10vw, 120px) 28px; display: flex; flex-direction: column; gap: 30px;">
+    <div class="aws-rv" data-reveal="" style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px;">
+      <span style="font-size: 12px; letter-spacing: 0.34em; text-transform: uppercase; color: rgba(63,74,56,0.6);">Already sure?</span>
+      <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(30px, 4vw, 42px); letter-spacing: 0.1em; text-transform: uppercase; margin: 0;">Reserve your <span style="font-family: 'Allura', cursive; text-transform: none; letter-spacing: 0; color: {{ accent }};">spot</span></h2>
+      <p style="font-size: 14.5px; line-height: 1.8; letter-spacing: 0.04em; color: rgba(63,74,56,0.8); margin: 0; max-width: 520px; text-wrap: pretty;">Skip the inquiry: pick your service, choose a day to meet, and secure it with a deposit — pay however suits you.</p>
+    </div>
+    <form onSubmit="{{ startBookingCheckout }}" class="aws-rv" data-reveal="" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: 26px 22px; border: 1px solid rgba(63,74,56,0.25); padding: clamp(24px, 4vw, 40px); align-items: end;">
+      <label style="display: flex; flex-direction: column; gap: 8px; grid-column: 1 / -1;">
+        <span style="font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(63,74,56,0.7);">Your service *</span>
+        <select required="{{ true }}" onChange="{{ setBookIdx }}" style="background: none; border: none; border-bottom: 1px solid rgba(63,74,56,0.4); padding: 10px 2px; font-size: 15px; color: #3f4a38; outline: none;">
+          <option value="0">Social Media Management — from $1,500/mo</option>
+          <option value="1">Content Creation — from $600</option>
+          <option value="2">Brand Identity &amp; Design — from $2,500</option>
+          <option value="3">Brand Launch Campaigns — from $3,500</option>
+          <option value="4">Event Planning &amp; Execution — pricing TBD</option>
+        </select>
+        <span style="font-size: 11.5px; letter-spacing: 0.06em; color: rgba(63,74,56,0.6);">{{ bookDepositLine }}</span>
+      </label>
+      <label style="display: flex; flex-direction: column; gap: 8px;">
+        <span style="font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(63,74,56,0.7);">Meeting day *</span>
+        <input required="{{ true }}" type="date" min="{{ minDate }}" onChange="{{ setBookDate }}" style="background: none; border: none; border-bottom: 1px solid rgba(63,74,56,0.4); padding: 9px 2px; font-size: 15px; color: #3f4a38; outline: none; font-family: 'Karla', sans-serif;">
+      </label>
+      <label style="display: flex; flex-direction: column; gap: 8px;">
+        <span style="font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(63,74,56,0.7);">Time *</span>
+        <select required="{{ true }}" onChange="{{ setBookTime }}" style="background: none; border: none; border-bottom: 1px solid rgba(63,74,56,0.4); padding: 10px 2px; font-size: 15px; color: #3f4a38; outline: none;">
+          <option value="">Select…</option>
+          <option>9:00 AM</option>
+          <option>10:30 AM</option>
+          <option>12:00 PM</option>
+          <option>2:00 PM</option>
+          <option>3:30 PM</option>
+        </select>
+      </label>
+      <button type="submit" style="background: #3f4a38; color: #f1ebdf; border: 1px solid #3f4a38; font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; padding: 16px 24px; cursor: pointer; font-family: 'Karla', sans-serif; white-space: nowrap; transition: background 0.4s, color 0.4s;" style-hover="background: none; color: #3f4a38;">Reserve &amp; pay</button>
+    </form>
+    <div class="aws-rv" data-reveal="" style="display: flex; flex-direction: column; align-items: center; gap: 14px;">
+      <span style="font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(63,74,56,0.5);">We accept</span>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 12px;">
+        <sc-for list="{{ payMethods }}" as="m" hint-placeholder-count="8">
+          <span title="{{ m.name }}" style="display: flex; align-items: center; gap: 8px; border: 1px solid rgba(63,74,56,0.22); padding: 7px 12px 7px 8px;">
+            <span aria-hidden="true" style="flex: none; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: {{ m.markBg }}; color: {{ m.markFg }}; font-size: 10px; font-weight: 600;">{{ m.mark }}</span>
+            <span style="font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(63,74,56,0.75); white-space: nowrap;">{{ m.shortName }}</span>
+          </span>
+        </sc-for>
+      </div>
+      <span style="font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(63,74,56,0.45);">{{ processorLine }}</span>
+    </div>
+    <p class="aws-rv" data-reveal="" style="font-size: 11px; letter-spacing: 0.08em; text-align: center; color: rgba(63,74,56,0.55); margin: 0;">Not ready to commit? <a href="#contact" style="color: #3f4a38;">Send an inquiry instead</a> — no deposit needed.</p>
+  </div>
+</section>
+
+<!-- ============ CONTACT (cream form) ============ -->
+<section id="contact" data-screen-label="Contact" style="background: #f1ebdf; color: #3f4a38;">
+  <div style="max-width: 1240px; margin: 0 auto; padding: clamp(72px, 10vw, 120px) 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: clamp(44px, 6vw, 90px); align-items: start;">
+    <div class="aws-rv" data-reveal="" style="display: flex; flex-direction: column; gap: 18px;">
+      <span style="font-size: 12px; letter-spacing: 0.34em; text-transform: uppercase; color: rgba(63,74,56,0.6);">Start the journey</span>
+      <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(30px, 4vw, 42px); letter-spacing: 0.1em; text-transform: uppercase; margin: 0; line-height: 1.3;">Tell us about <span style="font-family: 'Allura', cursive; text-transform: none; letter-spacing: 0; color: {{ accent }};">your brand</span></h2>
+      <p style="font-size: 14.5px; line-height: 1.85; letter-spacing: 0.04em; color: rgba(63,74,56,0.8); margin: 0; text-wrap: pretty;">Fill out the form and you'll hear back within 24 hours with next steps and a link to book your discovery call.</p>
+      <div style="border-top: 1px solid rgba(63,74,56,0.25); padding-top: 18px; display: flex; flex-direction: column; gap: 6px;">
+        <span style="font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(63,74,56,0.55);">Prefer email?</span>
+        <a href="mailto:acostamelie@gmail.com" style="color: #3f4a38; font-size: 15px; text-decoration: none; border-bottom: 1px solid rgba(63,74,56,0.4); align-self: flex-start; transition: color 0.4s;" style-hover="color: {{ accent }};">acostamelie@gmail.com</a>
+      </div>
+    </div>
+    <sc-if value="{{ formSubmitted }}" hint-placeholder-val="{{ false }}">
+      <div style="display: flex; flex-direction: column; gap: 16px; align-items: flex-start; padding: 40px 0;">
+        <span style="font-family: 'Allura', cursive; font-size: 44px; color: {{ accent }};">thank you!</span>
+        <p style="font-size: 15px; line-height: 1.8; margin: 0; color: rgba(63,74,56,0.85);">Your inquiry is on its way. We'll be in touch within 24 hours.</p>
+        <button onClick="{{ resetForm }}" style="background: none; border: 1px solid #3f4a38; color: #3f4a38; font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; padding: 14px 26px; cursor: pointer; font-family: 'Karla', sans-serif;">Send another</button>
+      </div>
+    </sc-if>
+    <sc-if value="{{ formNotSubmitted }}" hint-placeholder-val="{{ true }}">
+      <form onSubmit="{{ submitForm }}" style="display: grid; grid-template-columns: 1fr 1fr; gap: 26px 22px;">
+        <label style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(63,74,56,0.7);">Name *</span>
+          <input required="{{ true }}" name="name" type="text" style="background: none; border: none; border-bottom: 1px solid rgba(63,74,56,0.4); padding: 10px 2px; font-size: 15px; color: #3f4a38; outline: none;">
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(63,74,56,0.7);">Email *</span>
+          <input required="{{ true }}" name="email" type="email" style="background: none; border: none; border-bottom: 1px solid rgba(63,74,56,0.4); padding: 10px 2px; font-size: 15px; color: #3f4a38; outline: none;">
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(63,74,56,0.7);">Business name</span>
+          <input name="business" type="text" style="background: none; border: none; border-bottom: 1px solid rgba(63,74,56,0.4); padding: 10px 2px; font-size: 15px; color: #3f4a38; outline: none;">
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(63,74,56,0.7);">Instagram handle</span>
+          <input name="instagram" type="text" placeholder="@" style="background: none; border: none; border-bottom: 1px solid rgba(63,74,56,0.4); padding: 10px 2px; font-size: 15px; color: #3f4a38; outline: none;">
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(63,74,56,0.7);">Service of interest *</span>
+          <select required="{{ true }}" name="service" style="background: none; border: none; border-bottom: 1px solid rgba(63,74,56,0.4); padding: 10px 2px; font-size: 15px; color: #3f4a38; outline: none;">
+            <option value="">Select a service…</option>
+            <option>Social Media Management</option>
+            <option>Content Creation</option>
+            <option>Brand Identity &amp; Design</option>
+            <option>Brand Launch Campaign</option>
+            <option>Event Planning &amp; Execution</option>
+            <option>Not sure yet</option>
+          </select>
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(63,74,56,0.7);">Monthly budget</span>
+          <select name="budget" style="background: none; border: none; border-bottom: 1px solid rgba(63,74,56,0.4); padding: 10px 2px; font-size: 15px; color: #3f4a38; outline: none;">
+            <option value="">Select a range…</option>
+            <option>Under $1,000</option>
+            <option>$1,000 – $2,000</option>
+            <option>$2,000 – $3,500</option>
+            <option>$3,500+</option>
+          </select>
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 8px; grid-column: 1 / -1;">
+          <span style="font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(63,74,56,0.7);">Tell us about your goals *</span>
+          <textarea required="{{ true }}" name="message" rows="4" style="background: none; border: none; border-bottom: 1px solid rgba(63,74,56,0.4); padding: 10px 2px; font-size: 15px; color: #3f4a38; outline: none; resize: vertical;"></textarea>
+        </label>
+        <button type="submit" style="grid-column: 1 / -1; justify-self: start; background: #3f4a38; color: #f1ebdf; border: 1px solid #3f4a38; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; padding: 18px 40px; cursor: pointer; font-family: 'Karla', sans-serif; white-space: nowrap; transition: background 0.4s, color 0.4s;" style-hover="background: none; color: #3f4a38;">Send inquiry</button>
+      </form>
+    </sc-if>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer data-screen-label="Footer" style="background: #3f4a38; color: #e8dfcc;">
+  <div style="max-width: 1000px; margin: 0 auto; padding: 64px 28px 0; display: flex; flex-direction: column; align-items: center; gap: 26px; text-align: center;">
+    <div style="display: flex; flex-direction: column; line-height: 1;">
+      <span style="font-family: 'Cormorant Garamond', serif; font-size: 30px; letter-spacing: 0.22em; text-transform: uppercase; color: #f1ebdf;">All Ways</span>
+      <span style="font-family: 'Allura', cursive; font-size: 27px; color: {{ accent }}; margin: -2px 0 0 56px;">social</span>
+    </div>
+    <div style="width: 100%; height: 1px; background: rgba(232,223,204,0.3);"></div>
+    <div style="display: flex; gap: clamp(18px, 4vw, 44px); flex-wrap: wrap; justify-content: center;">
+      <a href="#home" style="text-decoration: none; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: #e8dfcc; transition: color 0.4s;" style-hover="color: {{ accent }};">Home</a>
+      <a href="#about" style="text-decoration: none; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: #e8dfcc; transition: color 0.4s;" style-hover="color: {{ accent }};">About</a>
+      <a href="#services" style="text-decoration: none; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: #e8dfcc; transition: color 0.4s;" style-hover="color: {{ accent }};">Services</a>
+      <a href="#investment" style="text-decoration: none; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: #e8dfcc; transition: color 0.4s;" style-hover="color: {{ accent }};">Investment</a>
+      <a href="#contact" style="text-decoration: none; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: #e8dfcc; transition: color 0.4s;" style-hover="color: {{ accent }};">Contact</a>
+    </div>
+    <div style="width: 100%; height: 1px; background: rgba(232,223,204,0.3);"></div>
+    <p style="font-size: 12px; letter-spacing: 0.08em; line-height: 1.8; color: rgba(232,223,204,0.85); margin: 0;">Social marketing for lifestyle, wellness &amp; local businesses — all ways, moving you forward.</p>
+  </div>
+  <div style="max-width: 1240px; margin: 40px auto 0; padding: 18px 28px; border-top: 1px solid rgba(232,223,204,0.2); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+    <span style="font-size: 10px; letter-spacing: 0.14em; color: rgba(232,223,204,0.7);">© 2026 All Ways Social</span>
+    <span style="font-size: 10px; letter-spacing: 0.14em; color: rgba(232,223,204,0.7);">Design prototype — imagery &amp; footage are placeholders</span>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;accent&quot;: { &quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#f090ac&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#f090ac&quot;, &quot;#e8dfcc&quot;, &quot;#e1b79a&quot;], &quot;section&quot;: &quot;Style&quot; },
+  &quot;showMarquee&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Style&quot; },
+  &quot;autoAdvance&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Carousel&quot; },
+  &quot;autoAdvanceSeconds&quot;: { &quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 7, &quot;min&quot;: 3, &quot;max&quot;: 15, &quot;step&quot;: 1, &quot;unit&quot;: &quot;s&quot;, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Carousel&quot; }
+}">
+/* ===========================================================================
+   PAYMENT CONFIG — everything that needs a real account/key lives here.
+   Until these are filled in, checkout runs in demo mode (no network calls,
+   no charges). See PAYMENTS-SETUP.md for what each value is and where to
+   get it.
+   =========================================================================== */
+const PAYMENTS = {
+  demoMode: true,                 // flip to false once the keys below are real
+  processorName: 'Stripe',        // shown in the trust line under checkout
+  currency: 'USD',
+  country: 'US',
+  businessName: 'All Ways Social',
+  stripePublishableKey: '',       // pk_live_… — public, safe in the browser
+  paypalClientId: '',             // PayPal REST client id (also powers Venmo)
+  applePayMerchantId: '',         // merchant.com.allwayssocial — needs domain verification
+  googlePayMerchantId: '',        // Google Pay & Wallet Console merchant id
+  // Your backend. Must create the PaymentIntent/Order server-side — never
+  // from the browser — and return its client secret / order id.
+  createIntentUrl: '/api/create-payment-intent',
+  // Methods to offer, in display order. Remove an id to hide that method.
+  enabled: ['card', 'applepay', 'googlepay', 'paypal', 'venmo', 'cashapp', 'klarna', 'ach']
+};
+
+const SERVICES = [
+  { num: '01', name: 'Social Media Management', tagline: 'Consistent posting and clear strategy', price: 'from $1,500/mo',
+    desc: 'Optimized publishing across 3 platforms, a curated Content Compass calendar, influencer collaborations, and monthly strategy meetings.',
+    deposit: '$750', depositNote: '50% deposit — first month', video: 'https://www.pexels.com/download/video/4685169/' },
+  { num: '02', name: 'Content Creation', tagline: 'Brand-forward content made to convert', price: 'from $600',
+    desc: 'High-quality iPhone content shoots with professionally edited Reels — authentic, modern, and impactful. Three customizable routes.',
+    deposit: '$300', depositNote: '50% deposit — Route 1 shoot', video: 'https://www.pexels.com/download/video/8089229/' },
+  { num: '03', name: 'Brand Identity & Design', tagline: 'The ultimate guide to brand building', price: 'from $2,500',
+    desc: 'Custom logo design, a complete brand kit with palette and typography, and a defined brand personality with mood boards.',
+    deposit: '$1,250', depositNote: '50% deposit to begin', video: 'https://www.pexels.com/download/video/7963099/' },
+  { num: '04', name: 'Brand Launch Campaigns', tagline: 'Become the brand people google', price: 'from $3,500',
+    desc: 'End-to-end campaign production: concept development, moodboards, creative direction, and fully edited launch-ready assets.',
+    deposit: '$1,750', depositNote: '50% deposit to begin', video: 'https://www.pexels.com/download/video/34636825/' },
+  { num: '05', name: 'Event Planning & Execution', tagline: 'We turn your vision into an experience', price: 'pricing TBD',
+    desc: 'Social-ready events from theme to highlight reel: branding, vendor coordination, content strategy, and guest experience.',
+    deposit: '$250', depositNote: 'Booking fee — applied to final quote', video: 'https://www.pexels.com/download/video/3188991/' }
+];
+
+const money = (n) => '$' + n.toLocaleString('en-US', {
+  minimumFractionDigits: Number.isInteger(n) ? 0 : 2, maximumFractionDigits: 2
+});
+
+/* Payment methods. `kind` picks which body the modal renders:
+   card | wallet (one-tap / redirect) | bnpl (instalments) | bank (ACH).
+   `mark` + `markBg` are the small brand dot — the only brand colour in the
+   UI, so the checkout still reads as All Ways Social rather than as a
+   payment vendor's page. */
+const PAY_METHODS = (dep) => [
+  { id: 'card', kind: 'card', mark: '▭', markBg: '#3f4a38', markFg: '#f1ebdf',
+    name: 'Credit or debit card', shortName: 'Card', note: 'Visa, Mastercard, Amex, Discover',
+    action: 'Pay ' + dep.label, busyName: 'your bank',
+    footnote: 'Card details go straight to our processor and are never stored on this site.' },
+  { id: 'applepay', kind: 'wallet', mark: 'A', markBg: '#131311', markFg: '#ffffff',
+    name: 'Apple Pay', shortName: 'Apple Pay', note: 'Confirm with Face ID or Touch ID',
+    action: 'Pay ' + dep.label + ' with Apple Pay', busyName: 'Apple Pay',
+    footnote: 'You’ll confirm the payment on your device — nothing is charged until you do.' },
+  { id: 'googlepay', kind: 'wallet', mark: 'G', markBg: '#4285f4', markFg: '#ffffff',
+    name: 'Google Pay', shortName: 'Google Pay', note: 'Use a card saved to your Google account',
+    action: 'Pay ' + dep.label + ' with Google Pay', busyName: 'Google Pay',
+    footnote: 'You’ll confirm the payment in the Google Pay sheet.' },
+  { id: 'paypal', kind: 'wallet', mark: 'P', markBg: '#003087', markFg: '#ffffff',
+    name: 'PayPal', shortName: 'PayPal', note: 'Your PayPal balance, bank, or linked card',
+    action: 'Continue to PayPal', busyName: 'PayPal',
+    footnote: 'PayPal opens in a secure window and brings you right back here.' },
+  { id: 'venmo', kind: 'wallet', mark: 'V', markBg: '#008cff', markFg: '#ffffff',
+    name: 'Venmo', shortName: 'Venmo', note: 'Approve in the Venmo app — US only',
+    action: 'Continue to Venmo', busyName: 'Venmo',
+    footnote: 'Venmo checkout works on mobile with the Venmo app installed.' },
+  { id: 'cashapp', kind: 'wallet', mark: '$', markBg: '#00d64f', markFg: '#131311',
+    name: 'Cash App Pay', shortName: 'Cash App', note: 'Scan a code with Cash App to approve',
+    action: 'Continue to Cash App', busyName: 'Cash App',
+    footnote: 'Scan the code with Cash App, or approve the request on your phone.' },
+  { id: 'klarna', kind: 'bnpl', mark: 'K', markBg: '#ffb3c7', markFg: '#131311',
+    name: 'Klarna — pay in 4', shortName: 'Klarna', note: '4 interest-free payments of ' + money(dep.value / 4),
+    action: 'Continue to Klarna', busyName: 'Klarna',
+    footnote: 'Klarna runs a soft check that doesn’t affect your credit score. We’re paid in full up front.' },
+  { id: 'ach', kind: 'bank', mark: '≡', markBg: '#e1b79a', markFg: '#131311',
+    name: 'Bank transfer (ACH)', shortName: 'Bank / ACH', note: 'Kindest on larger deposits — no card fee',
+    action: 'Pay ' + dep.label + ' from my bank', busyName: 'your bank',
+    footnote: 'Bank transfers settle in 3–5 business days. Your spot is held from the moment you authorise it.' }
+];
+
+class Component extends DCLogic {
+  state = { slide: 0, paused: false, submitted: false, checkout: null, payMethod: 'card', payState: 'idle', bookIdx: 0, bookDate: '', bookTime: '' };
+
+  /* Single funnel every payment method goes through.
+     In demo mode it just fakes a round trip. With real keys, replace the
+     setTimeout branch with the provider call noted per method below. */
+  submitPayment = (methodId) => {
+    clearTimeout(this._payTimer);
+    this.setState({ payState: 'processing' });
+
+    if (PAYMENTS.demoMode) {
+      this._payTimer = setTimeout(() => this.setState({ payState: 'paid' }), 1400);
+      return;
+    }
+
+    // 1. Ask YOUR server for a payment intent — amount is decided server-side
+    //    from the service id so it can't be tampered with in the browser.
+    const slide = SERVICES[this.state.checkout ?? 0];
+    fetch(PAYMENTS.createIntentUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        service: slide.name,
+        method: methodId,
+        currency: PAYMENTS.currency,
+        meetingDate: this.state.bookDate,
+        meetingTime: this.state.bookTime
+      })
+    })
+      .then(r => r.json())
+      .then(({ clientSecret }) => {
+        // 2. Hand the secret to the provider SDK:
+        //    card / applepay / googlepay / klarna / cashapp / ach
+        //        -> stripe.confirmPayment({ clientSecret, elements, ... })
+        //    paypal / venmo
+        //        -> paypal.Buttons({ createOrder, onApprove }).render(...)
+        return window.confirmWithProvider(methodId, clientSecret);
+      })
+      .then(() => this.setState({ payState: 'paid' }))
+      .catch(() => this.setState({ payState: 'idle' }));
+  };
+
+  componentDidMount() {
+    this._timer = setInterval(() => {
+      if (!this.state.paused && (this.props.autoAdvance ?? true)) {
+        this.setState(s => ({ slide: (s.slide + 1) % 5 }));
+      }
+    }, (this.props.autoAdvanceSeconds ?? 7) * 1000);
+    // Fail-safe reveal: rAF loop re-applies 'on' every frame (survives re-renders
+    // that recreate nodes). Revealed state keyed by DOM order, one-way.
+    this._revealed = new Set();
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const tick = () => {
+      const els = document.querySelectorAll('.aws-rv');
+      const limit = window.innerHeight * 0.92;
+      els.forEach((el, i) => {
+        if (!this._revealed.has(i)) {
+          if (reduced || el.getBoundingClientRect().top < limit) this._revealed.add(i);
+        }
+        if (this._revealed.has(i)) {
+          if (document.hidden) el.style.transition = 'none';
+          el.classList.add('on');
+        }
+      });
+    };
+    tick();
+    this._rvTimer = setInterval(tick, 120);
+    this._rvTick = tick;
+    window.addEventListener('scroll', tick, { passive: true });
+    window.addEventListener('resize', tick, { passive: true });
+  }
+
+  componentWillUnmount() {
+    clearInterval(this._timer);
+    clearInterval(this._rvTimer);
+    clearTimeout(this._payTimer);
+    window.removeEventListener('scroll', this._rvTick);
+    window.removeEventListener('resize', this._rvTick);
+  }
+
+  renderVals() {
+    const accent = this.props.accent ?? '#f090ac';
+    const slides = SERVICES;
+
+    // ---- payment state -----------------------------------------------------
+    const active = slides[this.state.checkout ?? this.state.bookIdx];
+    const dep = { label: active.deposit, value: Number(active.deposit.replace(/[^0-9.]/g, '')) || 0 };
+    const methods = PAY_METHODS(dep).filter(m => PAYMENTS.enabled.includes(m.id));
+    const sel = methods.find(m => m.id === this.state.payMethod) || methods[0];
+    const idle = this.state.payState === 'idle';
+    const today = new Date();
+    const instalment = money(dep.value / 4);
+
+    return {
+      accent,
+      showMarquee: this.props.showMarquee ?? true,
+      marqueeText: Array(10).fill('All Ways Social \u00A0\u00A0 • \u00A0\u00A0 ').join(''),
+      galleryLoop: (() => {
+        const g = [
+          { src: './assets/matcha-1.png', alt: 'Strawberry matcha drink' },
+          { src: './assets/coffee-3.png', alt: 'Parfait content with meme captions' },
+          { src: './assets/matcha-3.png', alt: 'Matcha ice cream texture' },
+          { src: './assets/coffee-1.png', alt: 'Pink dessert with sprinkles' },
+          { src: './assets/matcha-4.png', alt: 'Matcha drink and lunch bowl' },
+          { src: './assets/coffee-4.png', alt: 'Plated dessert close-up' },
+          { src: './assets/matcha-2.png', alt: 'Matcha whisk' },
+          { src: './assets/coffee-2.png', alt: 'Café toast plates' }
+        ];
+        return [...g, ...g];
+      })(),
+      pillars: [
+        { num: 'no. 1', name: 'Exploration', desc: 'Testing, experimenting, and trend discovery — finding what moves your audience.' },
+        { num: 'no. 2', name: 'Navigation', desc: 'Route mapping and strategy development that sets your direction.' },
+        { num: 'no. 3', name: 'Momentum', desc: 'Growth, scaling, and consistency that keeps you moving forward.' },
+        { num: 'no. 4', name: 'Destination', desc: 'Results and brand impact — and the next horizon after that.' }
+      ],
+      services: [
+        { name: 'Social Media Management', tag: 'from $1,500/mo', desc: 'Expert management tailored to your content, with the option to add creation for a fully hands-off experience.' },
+        { name: 'Content Creation', tag: 'from $600', desc: 'High-quality iPhone content designed to engage, attract, and convert — authentic, modern, and impactful.' },
+        { name: 'Brand Identity & Design', tag: 'from $2,500', desc: 'The visual foundation of your brand — cohesive, elevated, and aligned across everything you create.' },
+        { name: 'Brand Launch Campaigns', tag: 'from $3,500', desc: 'End-to-end creative campaign production, from initial concept to final delivery of ready-to-post assets.' },
+        { name: 'Event Planning & Execution', tag: 'pricing TBD', desc: 'Events and experiences that create shareable content, engage audiences, and showcase your brand.' }
+      ],
+      pricingSlides: slides,
+      setBookIdx: (e) => this.setState({ bookIdx: +e.target.value }),
+      setBookDate: (e) => this.setState({ bookDate: e.target.value }),
+      setBookTime: (e) => this.setState({ bookTime: e.target.value }),
+      startBookingCheckout: (e) => { e.preventDefault(); this.setState(s => ({ checkout: s.bookIdx, payMethod: PAYMENTS.enabled[0], payState: 'idle' })); },
+      bookDepositLine: `To reserve: ${slides[this.state.bookIdx].deposit} · ${slides[this.state.bookIdx].depositNote.toLowerCase()}`,
+      minDate: new Date().toISOString().slice(0, 10),
+      meetingLine: this.state.bookDate
+        ? `Your kickoff meeting: ${new Date(this.state.bookDate + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })} at ${this.state.bookTime}`
+        : 'We\u2019ll reach out within 24 hours to schedule your kickoff call.',
+      checkoutOpen: this.state.checkout !== null,
+      checkoutSlide: active,
+      closeCheckout: () => { clearTimeout(this._payTimer); this.setState({ checkout: null, payState: 'idle' }); },
+      stopClick: (e) => e.stopPropagation(),
+
+      // ---- payment methods -------------------------------------------------
+      payMethods: methods.map(m => ({
+        ...m,
+        isOn: m.id === sel.id,
+        select: () => this.setState({ payMethod: m.id }),
+        rowBg: m.id === sel.id ? 'rgba(63,74,56,0.06)' : 'none',
+        rowEdge: m.id === sel.id ? accent : 'transparent',
+        dotEdge: m.id === sel.id ? '#3f4a38' : 'rgba(63,74,56,0.35)',
+        dotFill: m.id === sel.id ? '#3f4a38' : 'transparent'
+      })),
+      selectedMethod: sel,
+      bodyIsCard: idle && sel.kind === 'card',
+      bodyIsWallet: idle && sel.kind === 'wallet',
+      bodyIsBnpl: idle && sel.kind === 'bnpl',
+      bodyIsBank: idle && sel.kind === 'bank',
+      installments: [0, 2, 4, 6].map((weeks, i) => ({
+        when: i === 0
+          ? 'Today'
+          : new Date(today.getTime() + weeks * 7 * 86400000)
+              .toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+        amount: instalment
+      })),
+      payStateIdle: idle,
+      payStateBusy: this.state.payState === 'processing',
+      payStatePaid: this.state.payState === 'paid',
+      busyLine: `Confirming with ${sel.busyName}…`,
+      paidMethodLine: `${active.deposit} paid · ${sel.shortName}`,
+      processorLine: `Payments secured by ${PAYMENTS.processorName} · 256-bit encryption`,
+      payNow: (e) => { e.preventDefault(); this.submitPayment(sel.id); },
+      payRedirect: () => this.submitPayment(sel.id),
+      trackX: `-${this.state.slide * 100}%`,
+      dots: slides.map((s, i) => ({
+        fill: i === this.state.slide ? '#f1ebdf' : 'transparent',
+        go: () => this.setState({ slide: i })
+      })),
+      prevSlide: () => this.setState(s => ({ slide: (s.slide + 4) % 5 })),
+      nextSlide: () => this.setState(s => ({ slide: (s.slide + 1) % 5 })),
+      pauseCarousel: () => this.setState({ paused: true }),
+      resumeCarousel: () => this.setState({ paused: false }),
+      formSubmitted: this.state.submitted,
+      formNotSubmitted: !this.state.submitted,
+      submitForm: (e) => { e.preventDefault(); this.setState({ submitted: true }); },
+      resetForm: () => this.setState({ submitted: false })
+    };
+  }
+}
+</script>
+</body>
+</html>
